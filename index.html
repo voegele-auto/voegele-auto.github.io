@@ -2,43 +2,31 @@
 <html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Autoteile Rechner</title>
+    <link rel="stylesheet" href="style.css">
+
   </head>
   <body>
-    <h1>Preisrecher</h1>
-    <div class="alles">
-      <h2>Kosten:</h2>
-      <input id = "kostenInput" type="number" name="" value="12">
-      <button type="button" name="button" onclick="rechnen()">berechnen</button>
-      <h2 id="ergebniss"></h2>
+    <div class="nav">
+
+      <a href="./einstellungen.html">
+        <h3>Einstellungen</h3>
+      </a>
     </div>
+    <h1>Preisrecher</h1>
+
+    <div id="list">
+
+    </div>
+    <h2></h2>
+    <h1> </h1>
+    <button type="button" name="button" onclick="calculate()">
+      <p>kosten berechnen</p>
+    </button>
+    <h2 id="ergebniss"></h2>
+
+
   </body>
 </html>
+<script src='script.js'>
 
-<style media="screen">
-  input{
-      font-size:2em;
-  }
-  button{
-    font-size:2em;
-  }
-  h1{
-    font-size:3em;
-  }
-  h2{
-    font-size:2em;
-  }
-  body{
-    background:#aaa;
-  }
-</style>
-
-<script type="text/javascript">
-  console.log("start");
-  var rechnen =function(){
-    var kosten
-    kosten=document.getElementById('kostenInput').value
-    document.getElementById('ergebniss').innerHTML="kosten "+kosten
-    console.log("berechnet ",kosten);
-  }
 </script>
