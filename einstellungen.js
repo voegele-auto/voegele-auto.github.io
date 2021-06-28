@@ -23,7 +23,7 @@ function createRow(key){
   button.name=name
   button.onclick=function(){
     val=document.getElementById('input'+this.name).value
-    localStorage['preis'+this.name]=val
+    localStorage['preis'+this.name+'preis']=val
   }
 }
 

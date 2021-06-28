@@ -1,20 +1,29 @@
 
 var rows=[]
 var display
+var preise={}
 start()
 
 function start(){
-  preise={
-    Wasser:12.4,
-    Öl:33,
-    reifen:55,
+  startpreise={
+    fahrtpreis:1,
+    arbeitpreis:90,
+    samstagpreis:45,
+    sonntagpreis:45,
+    spezialölpreis:40,
+    spülmittelpreis:2,
+    erstbefüllungpreis:25,
+    filterpreis:1,
+    schellepreis:3.5,
+    kraftstoffentsorgungpreis:3,
+
   }
 
-  for (key in preise){
+  for (key in startpreise){
     name="preis"+key
 
     if (localStorage[name]==undefined){
-      preis=preise[key]
+      preis=startpreise[key]
       console.log("adding", preis)
       localStorage[name]=preis
     }else{
@@ -22,50 +31,48 @@ function start(){
     }
   }
 
-
-
   for (key in localStorage){
     if (key.startsWith('preis')){
-      var newrow=createRow(key)
-      rows.push(newrow)
+      name=key.split('preis')[1]
+      preise[name]=localStorage[key]
+      console.log("name:",name,localStorage[key]);
+      document.getElementById(name+'preis').innerHTML=preise[name]
+
     }
   }
 
 }
 
 function calculate(){
+  var summe=0
+  for (key in preise){
+    var anzahl=document.getElementById(key+'input').value
+    if (anzahl==""){
+      anzahl=0
+    }else{
+      anzahl=parseFloat(anzahl)
+      console.log(anzahl);
+    }
+    preis=preise[key]
+    var kosten=anzahl*preis
+    kostenId=key+"kosten"
+    if (kosten!=0){
+      console.log(kostenId,":",kosten);
+      document.getElementById(kostenId).innerHTML=kosten
 
-  var res=0
-  for (i in rows){
-    var row=rows[i]
-    console.log(row);
-    console.log(row.input.value);
-    res+=row.input.value*row.preis
+    }
 
+
+    summe+=anzahl*preis
   }
-  document.getElementById('ergebniss').innerHTML="gesammt: "+res+"€"
-  return res
+
+  document.getElementById('nettosumme').innerHTML=summe
+  document.getElementById('steuer').innerHTML=summe*0.19
+  document.getElementById('brutto').innerHTML=summe*1.19
+
+
 }
 
-
-function createRow(key){
-
-  preis=localStorage[key]
-  name=key.split('preis')[1]
-
-  title=createElement('h2',name+' ('+preis+'€)')
-  inp=createElement('input','input')
-  inp.value=0
-  inp.id='input'+name
-  return {preis:parseFloat(preis),input:inp}
-}
-
-function createElement(type,title){
-  var newElement=document.createElement(type)
-  newElement.innerHTML=title
-  document.getElementById('list').appendChild(newElement)
-  return newElement
-}
 function resetPreise(){
   for (key in localStorage){
     if (key.startsWith('preis')){

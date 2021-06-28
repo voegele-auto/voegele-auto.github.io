@@ -12,21 +12,121 @@
         <h3>Einstellungen</h3>
       </a>
     </div>
-    <h1>Preisrecher</h1>
 
-    <div id="list">
+    <h2>Preisrechner</h2>
+
+    <table style="width:100%">
+      <tr>
+        <th>Kategorie</th>
+        <th>Name</th>
+        <th>Preis</th>
+        <th>Stückzahl</th>
+        <th>Kosten</th>
+      </tr>
+      <tr id='fahrt'>
+        <td rowspan="4">Aufwand</td>
+        <td>An-/Abfahrt</td>
+        <td id='fahrtpreis'></td>
+        <td><input id ='fahrtinput'></input></td>
+        <td id=fahrtkosten></td>
+      </tr>
+      <tr id='arbeit'>
+        <td>Arbeitszeit</td>
+        <td id='arbeitpreis'></td>
+        <td><input id ='arbeitinput'></input></td>
+        <td id=arbeitkosten></td>
+      </tr>
+      <tr id='samstag'>
+        <td>Samstag zuschlag / 18 uhr</td>
+        <td id='samstagpreis'></td>
+        <td><input id ='samstaginput'></input></td>
+        <td id=samstagkosten></td>
+      </tr>
+
+      <tr id='sonntag'>
+        <td>Sonntag zuschlag</td>
+        <td id='sonntagpreis'></td>
+        <td><input id ='sonntaginput'></input></td>
+        <td id=sonntagpreis></td>
+      </tr>
+      <tr id='spezialöl'>
+        <td rowspan="5">Material</td>
+        <td>Spezialöl zuschlag</td>
+        <td id='spezialölpreis'></td>
+        <td><input id ='spezialölinput'></input></td>
+        <td id=spezialölkosten></td>
+      </tr>
+      <tr id='erstbefüllung'>
+        <td>Erstbefüllung</td>
+        <td id='erstbefüllungpreis'></td>
+        <td><input id ='erstbefüllunginput'></input></td>
+        <td id=erstbefüllungkosten></td>
+      </tr>
+      <tr id='spülmittel'>
+        <td>Spülmittel</td>
+        <td id='spülmittelpreis'></td>
+        <td><input id ='spülmittelinput'></input></td>
+        <td id=spülmittelkosten></td>
+      </tr>
+      <tr id='filter'>
+        <td>Filter</td>
+        <td id='filterpreis'></td>
+        <td><input id ='filterinput'></input></td>
+        <td id=filterkosten></td>
+      </tr>
+      <tr id='schelle'>
+        <td>Schelle</td>
+        <td id='schellepreis'></td>
+        <td><input id ='schelleinput'></input></td>
+        <td id=schellekosten></td>
+      </tr>
+      <tr id='kraftstoffentsorgung'>
+        <td>Entsorgung</td>
+        <td>Kraftstoffentsorgung</td>
+        <td id='kraftstoffentsorgungpreis'></td>
+        <td><input id ='kraftstoffentsorgunginput'></input></td>
+        <td id=kraftstoffentsorgungkosten></td>
+      </tr>
+
+      <tr style='border:0'>
+        <td colspan="3" style='border:0'></td>
+        <td style='border:0'>Netto</td>
+        <td id='nettosumme'></td>
+
+      </tr>
+      <tr>
+        <td colspan="3" style='border:0'></td>
+        <td style='border:0;'>MWst</td>
+        <td id ='steuer'></td>
+      </tr>
+      <tr>
+        <td colspan="3" style='border:0'></td>
+        <td style='border:0;'>Brutto</td>
+        <td id ='brutto'></td>
+      </tr>
+
+
+    </table>
+    <p></p>
+
+    <button type="button" name="button" onclick="calculate()">Berechnen</button>
 
     </div>
     <h2></h2>
     <h1> </h1>
-    <button type="button" name="button" onclick="calculate()">
-      <p>kosten berechnen</p>
-    </button>
+
     <h2 id="ergebniss"></h2>
 
 
   </body>
 </html>
+<style media="screen">
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background: white;
+}
+</style>
 <script src='script.js'>
 
 </script>

@@ -2,27 +2,9 @@
   /* font-family: "Gill Sans", sans-serif; */
 }
 
-#counter{
-  top:10%;
-  position: fixed;
-  left:50%;
-
-}
-#names{
-  top:10%;
-  position: fixed;
-  left:10%
-}
-
 input{
-    position: relative;
-    font-size:1em;
+    font-size:2em;
 }
-h2{
-  width:100%
-}
-
-
 button{
   font-size: 2em;
 }
