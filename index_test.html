@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <div class="nav">
+
+      <!-- <a href="./einstellungen.html">
+        <h3>Einstellungen</h3>
+      </a> -->
+    </div>
+
+    <h2>Preisrechner</h2>
+
+    <table style="width:100%">
+      <tr>
+        <th class = "category">Kategorie</th>
+        <th class = "name"> Name</th>
+        <th class = "spacer"></th>
+
+        <th>Preis</th>
+        <th>Stückzahl</th>
+        <th class = "spacer2"></th>
+
+        <th>Kosten</th>
+      </tr>
+      <tr id='fahrt'>
+        <td class = "category" rowspan="4">Aufwand</td>
+        <td class = "name">An-/Abfahrt</td>
+        <th class = "spacer"></th>
+
+        <td id='fahrtpreis'></td>
+        <td class = "input"><input id ='fahrtinput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=fahrtkosten></td>
+      </tr>
+      <tr id='arbeit'>
+        <td class = "name">Arbeitszeit</td>
+        <th class = "spacer"></th>
+
+        <td id='arbeitpreis'></td>
+        <td class = "input"><input id ='arbeitinput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=arbeitkosten></td>
+      </tr>
+      <tr id='samstag'>
+        <td class = "name">Samstag zuschlag / 18 uhr</td>
+        <th class = "spacer"></th>
+
+        <td id='samstagpreis'></td>
+        <td class = "input"><input id ='samstaginput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=samstagkosten></td>
+      </tr>
+
+      <tr id='sonntag'>
+        <td class = "name">Sonntag zuschlag</td>
+        <th class = "spacer"></th>
+
+        <td id='sonntagpreis'></td>
+        <td class = "input"><input id ='sonntaginput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=sonntagpreis></td>
+      </tr>
+      <tr id='spezialöl'>
+        <td class = "category"  class = "category" rowspan="5">Material</td>
+        <td class = "name">Spezialöl zuschlag</td>
+        <th class = "spacer"></th>
+
+        <td id='spezialölpreis'></td>
+        <td class = "input"><input id ='spezialölinput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=spezialölkosten></td>
+      </tr>
+      <tr id='erstbefüllung'>
+        <td class = "name">Erstbefüllung</td>
+        <th class = "spacer"></th>
+
+        <td id='erstbefüllungpreis'></td>
+        <td class = "input"><input id ='erstbefüllunginput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=erstbefüllungkosten></td>
+      </tr>
+      <tr id='spülmittel'>
+        <td class = "name">Spülmittel</td>
+        <th class = "spacer"></th>
+
+        <td id='spülmittelpreis'></td>
+        <td class = "input"><input id ='spülmittelinput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=spülmittelkosten></td>
+      </tr>
+      <tr id='filter'>
+        <td class = "name">Filter</td>
+        <th class = "spacer"></th>
+
+        <td id='filterpreis'></td>
+        <td class = "input"><input id ='filterinput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=filterkosten></td>
+      </tr>
+      <tr id='schelle'>
+        <td class = "name">Schelle</td>
+        <th class = "spacer"></th>
+
+        <td id='schellepreis'></td>
+        <td class = "input"><input id ='schelleinput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=schellekosten></td>
+      </tr>
+      <tr id='kraftstoffentsorgung'>
+        <td>Entsorgung</td>
+        <td class = "name">Kraftstoffentsorgung</td>
+        <th class = "spacer"></th>
+
+        <td id='kraftstoffentsorgungpreis'></td>
+        <td class = "input"><input id ='kraftstoffentsorgunginput'></input></td>
+        <td class ="spacer2"></td>
+        <td id=kraftstoffentsorgungkosten></td>
+      </tr>
+
+      <tr style='border:0'>
+
+        <td colspan="5" style='border:0'></td>
+        <td style='border:0; text-align:right'>Netto: </td>
+        <td id='nettosumme'></td>
+
+      </tr>
+      <tr>
+
+        <td colspan="5" style='border:0'></td>
+        <td style='border:0; text-align:right'>MWst</td>
+        <td id ='steuer'></td>
+      </tr>
+      <tr>
+
+        <td colspan="5" style='border:0'></td>
+        <td style='border:0; text-align:right'>Brutto</td>
+        <td id ='brutto'></td>
+      </tr>
+
+
+    </table>
+    <p></p>
+
+    <button type="button" name="button" onclick="calculate()">Berechnen</button>
+
+    <h2></h2>
+    <h1> </h1>
+
+    <h2 id="ergebniss"></h2>
+
+
+  </body>
+</html>
+<style media="screen">
+
+*{
+  font-size: 20px;
+}
+
+table,th td{
+  border: 1px;
+  border-collapse:collapse;
+
+}
+th, td {
+  border: 1px solid black;
+  background: white;
+  height:1.5em;
+}
+
+.name{
+  width: 20em;
+}
+.spacer{
+  width: 8em;
+  border:0;
+}
+
+.spacer2{
+  width: 8em;
+  border:0;
+}
+.input{
+  width:5em;
+}
+
+input{
+  border:0;
+  width:5em;
+}
+
+
+</style>
+<script src='script.js'>
+
+</script>
